@@ -1,0 +1,8 @@
+This software includes third party open source software components: DABEST, subaxis, and tightfig. 
+Each of these software components have their own license. Please see ./DABEST-Matlab-master/LICENSE, 
+./subaxis/license.txt, and ./tightfig/license.txt in Recreate Figures/Submission_code.
+
+All remaining data and software is published under the CC-BY-NC-4.0 license.
+
+Copyright (c) 2018-2023 Karl Farrow
+All rights reserved.
