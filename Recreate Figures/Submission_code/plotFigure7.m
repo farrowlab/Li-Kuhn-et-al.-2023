@@ -272,3 +272,6 @@ set(gca, 'Color','none','Box','off');
 title('I', 'FontSize', 10, 'FontWeight','bold','Units','normalized','Position',[-0.2 0.98 0]);
 
 
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-7')), '-dpng', '-r300');
+close all

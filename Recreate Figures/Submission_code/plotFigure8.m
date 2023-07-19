@@ -165,3 +165,7 @@ ax = gca; ap = ax.Position; ax.Position= ap.*[1 1 1 1.6];
 %ap = ax.Position;ax.Position= ap+[0.105 0 0 0];
 title('C', 'FontSize', 10, 'FontWeight','bold','Units','normalized','Position',[-.08 0.95 0]);
 %%
+
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-8')), '-dpng', '-r300');
+close all

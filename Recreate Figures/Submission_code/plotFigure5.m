@@ -57,6 +57,10 @@ er2 = patch([u2;fliplr(u22)], [v2;fliplr(v22)], 'm')
 set(er2,'facecolor',col(2,:),'facealpha',0.50,'edgealpha',0.2,'edgecolor','none');
 title('C', 'FontSize', 10,  'FontWeight','bold','Units','normalized','Position',[-.05 0.98 0]);
 
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-5_A_C')), '-dpng', '-r300');
+close all
+
 %% Figure 5B - bias heat map 
 load(fullfile(dataPath,'BiasData.mat'));
 p1_log = Bias_logLGN;
@@ -75,6 +79,8 @@ cb = axs.Colorbar;
 cb.Ticks = [0.25:1:7];  
 cb.TickLabels = {'CTX','sCTX','TH','HYP','MB','HB','CB'}; 
 title('ParentalCode')
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,['Figure-5_B_',FigName])), '-dpng', '-r300');
 
 % plot LGN+Pbg bias
 FigName = ['BiasIndex_FunctionDevision'];
@@ -84,7 +90,8 @@ ax = gca;ax.Position = ax.Position .* [1 1 0.2 1];
 colormap(col_bias2(1:11,:));grid off
 ax.CellLabelColor='none';
 title('Bias')
-
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,['Figure-5_B_',FigName])), '-dpng', '-r300');
 
 % LGN+Pbg percentage - correction 2 (log scale)
 FigName = ['PerLogscale_FunctionDevision'];
@@ -105,4 +112,7 @@ ax.Position = cur_po .* [1 1 0.2 1];
 colormap(myGreys_mod);grid off
 ax.CellLabelColor='none';
 title('Gad2-PBG')
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,['Figure-5_B_',FigName])), '-dpng', '-r300');
+close all
 

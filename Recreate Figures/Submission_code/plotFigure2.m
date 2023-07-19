@@ -1,5 +1,9 @@
 %% Figure 2
+
 dataPath = [rawPath,'/Figure 2'];
+addpath(genpath(dataPath)); 
+addpath(genpath(dataPath)); 
+
 close all;clc;
 figure; set(gcf,'position',[109 1482 1000 150]); 
 %set(gcf, 'PaperUnits', 'centimeters'); set(gcf, 'PaperSize', [17.4 5.5]);
@@ -50,3 +54,7 @@ ap = ax.Position;ax.Position= ap+[0.105 0 0 0];
 title('A', 'FontSize', 10, 'FontWeight','bold','Units','normalized','Position',[-.08 0.95 0]);
 
 tightfig
+
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-2')), '-dpng', '-r300');
+close all

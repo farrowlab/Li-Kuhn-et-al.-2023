@@ -85,6 +85,10 @@ ax = gca; ap = ax.Position; ax.Position= ap.*[1 1 2.4 1];
 ap = ax.Position;ax.Position= ap+[-0.08 0 0 0];
 title('B', 'FontSize', 10,  'FontWeight','bold','Units','normalized','Position',[-.03 0.98 0]);
 
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-4_A-D')), '-dpng', '-r300');
+close all
+
 %% Figure 4E
 load BiasPlot
 xx = BiasPlot.val;sl = length(xx);
@@ -116,8 +120,10 @@ cp = cl.Position; cl.Position = cp.*[5.5 1 0.2 1];
 %cp = cl.Position; cl.Position = cp+[0.4 0 0 0];
 
 title('E', 'FontSize', 10,  'FontWeight','bold','Units','normalized','Position',[-.05 0.98 0]);
-
-%% Figure 3F
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-4_E')), '-dpng', '-r300');
+close all
+%% Figure 4F
 clc; figure; set(gcf,'position',[926 476 400 210]);
 rowN = 2; colN = 3;hold on;
 
@@ -178,6 +184,10 @@ for s = slices
     title (['Lateral ',sliceLabel{cnt}])
 end
 title('F', 'FontSize', 10,  'FontWeight','bold','Units','normalized','Position',[-2.5 2.51 0]);
+
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-4_F')), '-dpng', '-r300');
+close all
 
 %% Figure 4G-I
 load normData; 
@@ -260,3 +270,46 @@ for i = 1:7
     plot([b(i)-0.5 b(i)-0.5],[n m],'k-');
 end
 hold off;
+
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-4_G-I')), '-dpng', '-r300');
+close all
+
+%% Figure 4G-I-IHC 
+figure; set(gcf,'position',[109 1482 1200 600]); 
+%set(gcf, 'PaperUnits', 'centimeters'); set(gcf, 'PaperSize', [17.4 5.5]);
+rN = 2; cN =2;
+
+% Figure 4-G-IHC
+subplot(rN,cN,1)
+I = imread('Figure 4-G-IHC.tif');imshow(I);
+ax = gca; %ap = ax.Position; ax.Position= ap.*[1 1 1 1];
+ap = ax.Position; ax.Position= ap.*[1 1 1 1];
+title('G', 'FontSize', 10,'FontWeight','bold', 'Units','normalized','Position',[-.08 0.95  0]);
+
+% Figure 4-H-IHC
+subplot(rN,cN,2)
+I = imread('Figure 4-H-IHC.tif');imshow(I);
+ax = gca; ap = ax.Position; ax.Position= ap.*[1 1 1 1];
+ap = ax.Position;ax.Position= ap-[0.17 0 0 0];
+title('H', 'FontSize', 10,'FontWeight','bold', 'Units','normalized','Position',[-.08 0.95  0]);
+
+% Figure 4-I-IHC
+subplot(rN,cN,3)
+I = imread('Figure 4-I-IHC.tif');imshow(I);
+ax = gca; ap = ax.Position; ax.Position= ap.*[1 1 1 1];
+title('I', 'FontSize', 10, 'FontWeight','bold','Units','normalized','Position',[-.08 0.95 0]);
+
+% Figure 4-J-IHC
+subplot(rN,cN,4)
+I = imread('Figure 4-J-IHC.tif');imshow(I)
+ax = gca; ap = ax.Position; ax.Position= ap.*[1 1 1 1];
+ap = ax.Position;ax.Position= ap-[0.21 0 0 0];
+title('J', 'FontSize', 10, 'FontWeight','bold','Units','normalized','Position',[-.035 0.95 0]);
+
+set(gcf,'color','w');
+tightfig
+
+set(gcf,'renderer','Painters');
+print(gcf,(fullfile(savePath,'Figure-4_G-I-IHC')), '-dpng', '-r300');
+close all
